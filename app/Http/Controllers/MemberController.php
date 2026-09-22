@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreMemberRequest;
 use Illuminate\Http\Request;
 
 class MemberController extends Controller
@@ -10,33 +9,33 @@ class MemberController extends Controller
     private array $members = [
         [
             'id' => 1,
-            'nama' => 'Avas',
-            'nim' => '3124500001',
-            'email' => 'avas@gmail.com',
+            'nama' => 'Siti Aminah',
+            'nim' => '2310501001',
+            'email' => 'siti.aminah@pens.ac.id',
             'nomor_telepon' => '081234567890',
-            'alamat' => 'Surabaya',
             'status' => 'aktif',
         ],
         [
             'id' => 2,
             'nama' => 'Budi Santoso',
-            'nim' => '3124500002',
-            'email' => 'budi@gmail.com',
-            'nomor_telepon' => '082345678901',
-            'alamat' => 'Sidoarjo',
+            'nim' => '2310501002',
+            'email' => 'budi.santoso@pens.ac.id',
+            'nomor_telepon' => '081298765432',
             'status' => 'aktif',
         ],
         [
             'id' => 3,
-            'nama' => 'Citra Dewi',
-            'nim' => '3124500003',
-            'email' => 'citra@gmail.com',
-            'nomor_telepon' => '083456789012',
-            'alamat' => 'Gresik',
+            'nama' => 'Dewi Lestari',
+            'nim' => '2310501003',
+            'email' => 'dewi.lestari@pens.ac.id',
+            'nomor_telepon' => '081211122233',
             'status' => 'nonaktif',
         ],
     ];
 
+    /**
+     * Menampilkan daftar anggota.
+     */
     public function index()
     {
         $members = $this->members;
@@ -44,39 +43,57 @@ class MemberController extends Controller
         return view('members.index', compact('members'));
     }
 
+    /**
+     * Menampilkan form tambah anggota.
+     * Belum digunakan pada Pertemuan 4.
+     */
     public function create()
     {
-        return view('members.create');
+        //
     }
 
-    public function store(StoreMemberRequest $request)
+    /**
+     * Menyimpan anggota baru.
+     * Belum digunakan pada Pertemuan 4.
+     */
+    public function store(Request $request)
     {
-        $validated = $request->validated();
-
-        return redirect()->route('members.index')
-            ->with(
-                'success',
-                "Anggota \"{$validated['nama']}\" berhasil ditambahkan (data dummy, belum tersimpan ke database)."
-            );
+        //
     }
 
-    public function show(string $id)
+    /**
+     * Menampilkan detail anggota.
+     * Belum digunakan pada Pertemuan 4.
+     */
+    public function show(string $member)
     {
-        return "MemberController@show, id: {$id}";
+        //
     }
 
-    public function edit(string $id)
+    /**
+     * Menampilkan form edit anggota.
+     * Belum digunakan pada Pertemuan 4.
+     */
+    public function edit(string $member)
     {
-        return "MemberController@edit, id: {$id}";
+        //
     }
 
-    public function update(Request $request, string $id)
+    /**
+     * Memperbarui data anggota.
+     * Belum digunakan pada Pertemuan 4.
+     */
+    public function update(Request $request, string $member)
     {
-        return "MemberController@update, id: {$id}";
+        //
     }
 
-    public function destroy(string $id)
+    /**
+     * Menghapus anggota.
+     * Belum digunakan pada Pertemuan 4.
+     */
+    public function destroy(string $member)
     {
-        return "MemberController@destroy, id: {$id}";
+        //
     }
 }
