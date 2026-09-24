@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Tambah Anggota')
+@section('title', 'Edit Anggota')
 
 @section('content')
 
-    <h1>Tambah Anggota</h1>
+    <h1>Edit Anggota</h1>
 
     <p>
         <a href="{{ route('members.index') }}">
@@ -12,8 +12,9 @@
         </a>
     </p>
 
-    <form action="{{ route('members.store') }}" method="POST">
+    <form action="{{ route('members.update', $member['id']) }}" method="POST">
         @csrf
+        @method('PUT')
 
         <div class="form-group">
             <label for="nama">Nama</label>
@@ -21,7 +22,7 @@
                 type="text"
                 name="nama"
                 id="nama"
-                value="{{ old('nama') }}"
+                value="{{ old('nama', $member['nama']) }}"
             >
 
             @error('nama')
@@ -35,7 +36,7 @@
                 type="text"
                 name="nim"
                 id="nim"
-                value="{{ old('nim') }}"
+                value="{{ old('nim', $member['nim']) }}"
             >
 
             @error('nim')
@@ -49,7 +50,7 @@
                 type="email"
                 name="email"
                 id="email"
-                value="{{ old('email') }}"
+                value="{{ old('email', $member['email']) }}"
             >
 
             @error('email')
@@ -63,7 +64,7 @@
                 type="text"
                 name="nomor_telepon"
                 id="nomor_telepon"
-                value="{{ old('nomor_telepon') }}"
+                value="{{ old('nomor_telepon', $member['nomor_telepon']) }}"
             >
 
             @error('nomor_telepon')
@@ -77,7 +78,7 @@
                 name="alamat"
                 id="alamat"
                 rows="4"
-            >{{ old('alamat') }}</textarea>
+            >{{ old('alamat', $member['alamat']) }}</textarea>
 
             @error('alamat')
                 <div class="error">{{ $message }}</div>
@@ -88,13 +89,13 @@
             <label for="status">Status</label>
 
             <select name="status" id="status">
-                <option value="">-- Pilih Status --</option>
-
-                <option value="aktif" @selected(old('status') == 'aktif')>
+                <option value="aktif"
+                    @selected(old('status', $member['status']) == 'aktif')>
                     Aktif
                 </option>
 
-                <option value="nonaktif" @selected(old('status') == 'nonaktif')>
+                <option value="nonaktif"
+                    @selected(old('status', $member['status']) == 'nonaktif')>
                     Nonaktif
                 </option>
             </select>
@@ -105,7 +106,7 @@
         </div>
 
         <button type="submit" class="btn">
-            Simpan
+            Perbarui
         </button>
 
     </form>
