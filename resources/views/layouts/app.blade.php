@@ -77,6 +77,30 @@
             margin-bottom: 16px;
         }
 
+        /* Badge status peminjaman */
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .badge-dikembalikan {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .badge-dipinjam {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-terlambat {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
         .btn {
             display: inline-block;
             padding: 6px 14px;
@@ -100,6 +124,7 @@
             border-top: 1px solid #e5e7eb;
             margin-top: 40px;
         }
+
     </style>
 </head>
 
