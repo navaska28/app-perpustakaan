@@ -112,6 +112,27 @@
             cursor: pointer;
         }
 
+        /* User yang sedang login */
+        .navbar-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Tombol logout */
+        .btn-logout {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-logout:hover {
+            opacity: 0.9;
+        }
+
         form.inline {
             display: inline;
         }
